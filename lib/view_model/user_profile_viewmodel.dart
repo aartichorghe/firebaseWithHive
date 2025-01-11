@@ -52,9 +52,9 @@ class UserViewModel extends ChangeNotifier {
   }
 
   // Update a user in Firebase and Hive
-  Future<void> updateUser(String userId, UserModel user) async {
+  Future<void> updateUser(UserModel user) async {
     try {
-      await userRepository.updateUser(userId, user);
+      await userRepository.updateUser(user);
       fetchUsers(); // Refresh the list after updating
     } catch (e) {
       _error = e.toString();

@@ -33,9 +33,10 @@ class UserCard extends StatelessWidget {
               fit: BoxFit.cover,
               imageUrl: user.profilePic,
               errorWidget: (context, url, error) => CircleAvatar(
-                radius: 20.sp,  // smaller circle
+                radius: 20.sp, // smaller circle
                 backgroundColor: Colors.grey.shade300,
-                child: Icon(Icons.person, size:35.sp, color: Colors.grey.shade700),
+                child: Icon(Icons.person,
+                    size: 35.sp, color: Colors.grey.shade700),
               ),
               placeholder: (context, url) =>
                   const CircularProgressIndicator.adaptive(),
@@ -52,9 +53,11 @@ class UserCard extends StatelessWidget {
                   SizedBox(height: 2.h),
                   Text('Email: ${user.email}', style: AppStyles.style16Normal),
                   SizedBox(height: 2.h),
-                  Text('Address: ${user.address}', style: AppStyles.style16Normal),
+                  Text('Address: ${user.address}',
+                      style: AppStyles.style16Normal),
                   SizedBox(height: 2.h),
-                  Text('MobileNo: ${user.mobileNo}', style: AppStyles.style16Normal),
+                  Text('MobileNo: ${user.mobileNo}',
+                      style: AppStyles.style16Normal),
                   SizedBox(height: 2.h),
                 ],
               ),

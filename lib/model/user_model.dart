@@ -10,10 +10,9 @@ UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
 String userModelToJson(UserModel data) => json.encode(data.toJson());
 
 @HiveType(typeId: 0)
-class UserModel{
-
+class UserModel {
   @HiveField(0)
-  dynamic id;
+  String? id;
 
   @HiveField(1)
   String name;
@@ -31,7 +30,7 @@ class UserModel{
   String profilePic;
 
   UserModel({
-    required this.id,
+    this.id,
     required this.name,
     required this.email,
     required this.address,
@@ -39,14 +38,16 @@ class UserModel{
     required this.profilePic,
   });
 
-  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
-        id: json["id"],
-        name: json["name"],
-        email: json["email"],
-        address: json["address"],
-        mobileNo: json["mobileNo"],
-        profilePic: json["profilePic"],
-      );
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
+      id: json["id"],
+      name: json["name"] ?? '',
+      email: json["email"] ?? '',
+      address: json["address"] ?? '',
+      mobileNo: json["mobileNo"] ?? '',
+      profilePic: json["profilePic"] ?? '',
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         "id": id,
